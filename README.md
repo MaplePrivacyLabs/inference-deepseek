@@ -6,7 +6,7 @@ it reuses Tinfoil's digest-pinned inference image and verified model pack.
 
 ## Upstream provenance
 
-`tinfoil-config.yml` is copied unchanged from
+`tinfoil-config.yml` derives from
 [tinfoilsh/confidential-deepseek-v4-1-flash v0.0.6+b300](https://github.com/tinfoilsh/confidential-deepseek-v4-1-flash/tree/v0.0.6%2Bb300),
 commit `28775a51ed83ddd1cd295852db46499d7d50c480`.
 
@@ -15,7 +15,9 @@ commit `28775a51ed83ddd1cd295852db46499d7d50c480`.
 - Image digest: `sha256:01dae35f82bd4fb13376a9d1f0330e4109c1c03a07532f8df3bb12f9b0e58880`
 - Resources: four GPUs, 56 CPUs, 768 GiB RAM; tensor parallelism four.
 - Confidential VM image: `0.14.13`; verified model-pack schema: `2`.
-- Authentication: Tinfoil's built-in authenticated shim on the configured paths.
+- Authentication: native vLLM bearer authentication with required `VLLM_API_KEY`;
+  the CVM metrics handlers use required `METRICS_API_KEY`. Secret values are
+  deployment settings. The upstream `/tokenize` and `/metrics` paths are omitted.
 
 The release workflows derive from
 [Tinfoil's container template](https://github.com/tinfoilsh/tinfoil-containers-template/tree/0eddc320b8f328d7a3c057152596934444ac2d75/.github/workflows).
