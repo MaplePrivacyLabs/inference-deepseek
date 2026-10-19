@@ -15,6 +15,9 @@ containers:
     runtime: nvidia
     gpus: all
     restart: always
+    secrets:
+      - VLLM_API_KEY
+      - METRICS_API_KEY
     env:
       - PYTORCH_CUDA_ALLOC_CONF: "expandable_segments:False"
       - VLLM_ALLREDUCE_USE_SYMM_MEM: "0"
@@ -80,16 +83,9 @@ containers:
 
 shim:
   upstream-port: 8001
-  authenticated: true
-  authenticated-endpoints:
-    - /v1/chat/completions
-    - /v1/responses
-    - /tokenize
-    - /metrics
+  authenticated: false
   paths:
     - /v1/chat/completions
     - /v1/models
     - /v1/responses
-    - /tokenize
-    - /metrics
     - /health
