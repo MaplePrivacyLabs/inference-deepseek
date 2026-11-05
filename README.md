@@ -14,10 +14,13 @@ commit `28775a51ed83ddd1cd295852db46499d7d50c480`.
 - Model revision: `1bae0e1088993b9b82de08f59de5be5a34e42170`
 - Image digest: `sha256:01dae35f82bd4fb13376a9d1f0330e4109c1c03a07532f8df3bb12f9b0e58880`
 - Resources: four GPUs, 56 CPUs, 768 GiB RAM; tensor parallelism four.
-- Confidential VM image: `0.14.17`; verified model-pack schema: `2`.
+- Confidential VM image: `0.14.13`; verified model-pack schema: `2`.
 - Authentication: native vLLM bearer authentication with required `VLLM_API_KEY`;
   the CVM metrics handlers use required `METRICS_API_KEY`. Secret values are
   deployment settings. The upstream `/tokenize` and `/metrics` paths are omitted.
+
+This repository's proposed configuration selects CVM image `0.14.17` in
+`tinfoil-config.yml`; the upstream release above remains at `0.14.13`.
 
 The release workflows derive from
 [Tinfoil's container template](https://github.com/tinfoilsh/tinfoil-containers-template/tree/0eddc320b8f328d7a3c057152596934444ac2d75/.github/workflows).
