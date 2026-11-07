@@ -19,6 +19,9 @@ commit `28775a51ed83ddd1cd295852db46499d7d50c480`.
   the CVM metrics handlers use required `METRICS_API_KEY`. Secret values are
   deployment settings. The upstream `/tokenize` and `/metrics` paths are omitted.
 
+This repository's proposed configuration selects CVM image `0.14.17` in
+`tinfoil-config.yml`; the upstream release above remains at `0.14.13`.
+
 The release workflows derive from
 [Tinfoil's container template](https://github.com/tinfoilsh/tinfoil-containers-template/tree/0eddc320b8f328d7a3c057152596934444ac2d75/.github/workflows).
 The measurement action is pinned to the same `v0.14.0` commit used by the
